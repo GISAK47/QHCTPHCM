@@ -1,5 +1,5 @@
 ol.proj.proj4.register(proj4);
-//ol.proj.get("EPSG:9210").setExtent([546630.555056, 1142456.005885, 686890.037244, 1235461.675705]);
+//ol.proj.get("EPSG:9210").setExtent([600067.467662, 1185929.388076, 615794.410115, 1196357.879570]);
 var wms_layers = [];
 
 
@@ -94,12 +94,30 @@ var lyr_QHCTP_QHSDD_sentTongHop_1 = new ol.layer.Vector({
     <img src="styles/legend/QHCTP_QHSDD_sentTongHop_1_63.png" /> Sông, suối<br />\
     <img src="styles/legend/QHCTP_QHSDD_sentTongHop_1_64.png" /> Sông, suối, kênh, rạch<br />\
     <img src="styles/legend/QHCTP_QHSDD_sentTongHop_1_65.png" /> <br />' });
+var format_PhngX168_2 = new ol.format.GeoJSON();
+var features_PhngX168_2 = format_PhngX168_2.readFeatures(json_PhngX168_2, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:9210'});
+var jsonSource_PhngX168_2 = new ol.source.Vector({
+    attributions: ' ',
+});
+jsonSource_PhngX168_2.addFeatures(features_PhngX168_2);
+var lyr_PhngX168_2 = new ol.layer.Vector({
+                declutter: false,
+                source:jsonSource_PhngX168_2, 
+                style: style_PhngX168_2,
+                popuplayertitle: 'Phường Xã 168',
+                interactive: true,
+                title: '<img src="styles/legend/PhngX168_2.png" /> Phường Xã 168'
+            });
 
-lyr_GoogleSatellite_0.setVisible(true);lyr_QHCTP_QHSDD_sentTongHop_1.setVisible(true);
-var layersList = [lyr_GoogleSatellite_0,lyr_QHCTP_QHSDD_sentTongHop_1];
+lyr_GoogleSatellite_0.setVisible(true);lyr_QHCTP_QHSDD_sentTongHop_1.setVisible(true);lyr_PhngX168_2.setVisible(true);
+var layersList = [lyr_GoogleSatellite_0,lyr_QHCTP_QHSDD_sentTongHop_1,lyr_PhngX168_2];
 lyr_QHCTP_QHSDD_sentTongHop_1.set('fieldAliases', {'OBJECTID': 'OBJECTID', 'MaQuyUoc': 'MaQuyUoc', 'ChucNang': 'ChucNang', 'GiaiDoan': 'GiaiDoan', 'KhuVuc': 'KhuVuc', 'LayerName': 'LayerName', 'MauRGB': 'MauRGB', 'DTShapeHa': 'DTShapeHa', 'MauHex': 'MauHex', 'Shape_Length': 'Shape_Length', 'Shape_Area': 'Shape_Area', });
+lyr_PhngX168_2.set('fieldAliases', {'SoKyHieu': 'SoKyHieu', 'TenDVHC': 'TenDVHC', 'TenTinh': 'TenTinh', 'DTKm2_356': 'DTKm2_356', 'DS_356': 'DS_356', 'MatDo': 'MatDo', 'TenHuyenCu': 'TenHuyenCu', 'ViTriCu': 'ViTriCu', 'DTKm2_SoDo': 'DTKm2_SoDo', 'DS_SoDo': 'DS_SoDo', 'TenPX_view': 'TenPX_view', 'DotPhLoai': 'DotPhLoai', 'QuyetDinh': 'QuyetDinh', 'KQPhanLoai': 'KQPhanLoai', });
 lyr_QHCTP_QHSDD_sentTongHop_1.set('fieldImages', {'OBJECTID': 'TextEdit', 'MaQuyUoc': 'TextEdit', 'ChucNang': 'TextEdit', 'GiaiDoan': 'TextEdit', 'KhuVuc': 'TextEdit', 'LayerName': 'TextEdit', 'MauRGB': 'TextEdit', 'DTShapeHa': 'TextEdit', 'MauHex': 'TextEdit', 'Shape_Length': 'TextEdit', 'Shape_Area': 'TextEdit', });
+lyr_PhngX168_2.set('fieldImages', {'SoKyHieu': 'TextEdit', 'TenDVHC': 'TextEdit', 'TenTinh': 'TextEdit', 'DTKm2_356': 'TextEdit', 'DS_356': 'Range', 'MatDo': 'Range', 'TenHuyenCu': 'TextEdit', 'ViTriCu': 'TextEdit', 'DTKm2_SoDo': 'TextEdit', 'DS_SoDo': 'Range', 'TenPX_view': 'TextEdit', 'DotPhLoai': 'TextEdit', 'QuyetDinh': 'TextEdit', 'KQPhanLoai': 'TextEdit', });
 lyr_QHCTP_QHSDD_sentTongHop_1.set('fieldLabels', {'OBJECTID': 'no label', 'MaQuyUoc': 'no label', 'ChucNang': 'inline label - always visible', 'GiaiDoan': 'inline label - always visible', 'KhuVuc': 'inline label - always visible', 'LayerName': 'inline label - always visible', 'MauRGB': 'no label', 'DTShapeHa': 'no label', 'MauHex': 'no label', 'Shape_Length': 'no label', 'Shape_Area': 'inline label - always visible', });
-lyr_QHCTP_QHSDD_sentTongHop_1.on('precompose', function(evt) {
+lyr_PhngX168_2.set('fieldLabels', {'SoKyHieu': 'no label', 'TenDVHC': 'inline label - always visible', 'TenTinh': 'inline label - visible with data', 'DTKm2_356': 'inline label - visible with data', 'DS_356': 'inline label - visible with data', 'MatDo': 'no label', 'TenHuyenCu': 'inline label - visible with data', 'ViTriCu': 'inline label - visible with data', 'DTKm2_SoDo': 'no label', 'DS_SoDo': 'no label', 'TenPX_view': 'no label', 'DotPhLoai': 'no label', 'QuyetDinh': 'no label', 'KQPhanLoai': 'inline label - visible with data', });
+lyr_PhngX168_2.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
